@@ -3,17 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 5000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.14",
+    "@chakra-ui/react": "^1.6.5",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "framer-motion": "4",
+    "graphql": "^15.5.1",
+    "graphql-request": "^3.4.0",
     "next": "11.0.1",
+    "prismjs": "^1.24.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-query": "^3.19.1"
   },
   "devDependencies": {
+    "@types/prismjs": "^1.16.6",
     "@types/react": "17.0.11",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",

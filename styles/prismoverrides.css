@@ -1,0 +1,9 @@
+code[class*="language-"],
+pre[class*="language-"] {
+  text-shadow: none;
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
