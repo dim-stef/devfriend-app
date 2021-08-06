@@ -16,7 +16,7 @@ export function useGetSnippets() {
   return useQuery('get-snippets', async () => {
     const {snippets} = await graphQLClient.request(gql`
       query {
-        snippets {
+        snippets (sorting: [{field: created, direction: DESC}]){
           edges {
             node {
               id

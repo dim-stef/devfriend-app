@@ -7,16 +7,44 @@ import {
   QueryClientProvider,
 } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { ChakraProvider, DarkMode } from "@chakra-ui/react"
-
+import { ChakraProvider, Container, DarkMode } from "@chakra-ui/react"
+import { extendTheme } from "@chakra-ui/react"
+const theme = extendTheme({
+  useSystemColorMode: false,
+  initialColorMode: "dark",
+  colors: {
+    brand: {
+      100: "#f7fafc",
+      900: "#1a202c",
+    },
+  },
+  styles: {
+    global: {
+      // styles for the `body`
+      body: {
+        bg: "#1b1924",
+        color: "white",
+      },
+      // styles for the `a`
+      a: {
+        color: "teal.500",
+        _hover: {
+          textDecoration: "underline",
+        },
+      },
+    },
+  },
+})
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <DarkMode>
         <QueryClientProvider client={queryClient}>
-          <Component {...pageProps} />
+          <Container w="800" maxW="800" mt="10">
+            <Component {...pageProps} />
+          </Container>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </DarkMode>

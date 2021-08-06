@@ -1,9 +1,16 @@
+import { useRouter } from "next/router";
 import { Container, Button, DarkMode } from "@chakra-ui/react"
 
 function CreateSnippetButton(){
+  const router = useRouter();
+
+  function onClick(){
+    router.push('/create');
+  }
+
   return(
     <Container>
-      <Button colorScheme="blue">Create snippet</Button>
+      <Button onClick={onClick} colorScheme="blue">Create snippet</Button>
     </Container>
   )
 }
