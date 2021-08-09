@@ -27,7 +27,7 @@ export default function Home() {
       </Head>
       <Box w="100%" h="100%">
         <Flex flexFlow="row" justifyContent="center" className={styles.main}>
-          <Flex align="center" flexFlow="column" flexBasis="100%">
+          <Flex align="flex-end" flexFlow="column">
             {snippets?.data?.map((snippet: SnippetNodeInterface)=>{
               return <Snippet key={snippet.node.id} snippet={snippet.node}/>
             })}

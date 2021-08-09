@@ -2,13 +2,19 @@ import "../styles/globals.css";
 import "../styles/prism.css";
 import "../styles/prismoverrides.css";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import {
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
-import { ReactQueryDevtools } from 'react-query/devtools'
-import { ChakraProvider, Container, DarkMode } from "@chakra-ui/react"
-import { extendTheme } from "@chakra-ui/react"
+  ChakraProvider,
+  Container,
+  DarkMode,
+  Flex,
+  Button,
+  IconButton,
+} from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
+import { extendTheme } from "@chakra-ui/react";
 const theme = extendTheme({
   useSystemColorMode: false,
   initialColorMode: "dark",
@@ -34,15 +40,35 @@ const theme = extendTheme({
       },
     },
   },
-})
+});
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  function onStarClick(){
+    router.push('/');
+  }
+
   return (
     <ChakraProvider theme={theme}>
       <DarkMode>
         <QueryClientProvider client={queryClient}>
-          <Container w="800" maxW="800" mt="10">
+          <Flex w="100%" justifyContent="center" alignItems="center" h="60px" position="fixed" top="0"
+          bg="#1b1924">
+            <Flex w="800" maxW="800">
+              <IconButton
+                onClick={onStarClick}
+                icon={<StarIcon />}
+                colorScheme="teal"
+                aria-label="Home"
+                variant="transparent"
+              />
+                
+            </Flex>
+          </Flex>
+
+          <Container w="800" maxW="1200" mt="63px">
             <Component {...pageProps} />
           </Container>
           <ReactQueryDevtools initialIsOpen={false} />

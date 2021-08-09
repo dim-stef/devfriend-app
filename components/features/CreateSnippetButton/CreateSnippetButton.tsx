@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { Container, Button, DarkMode } from "@chakra-ui/react"
+import BigButton from '../../flat/BigButton';
 
 function CreateSnippetButton(){
   const router = useRouter();
@@ -10,7 +11,7 @@ function CreateSnippetButton(){
 
   return(
     <Container>
-      <Button onClick={onClick} colorScheme="blue">Create snippet</Button>
+      <BigButton onClick={onClick} colorScheme="blue">Create snippet</BigButton>
     </Container>
   )
 }
