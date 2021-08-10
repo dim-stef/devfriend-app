@@ -4,7 +4,7 @@ import CreateSnippet from "../components/features/CreateSnippet";
 
 function CreateSnippetPage(){
   return(
-    <Box>
+    <Box className="container">
       <CreateSnippet />
     </Box>
   )

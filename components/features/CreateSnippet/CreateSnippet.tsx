@@ -141,7 +141,7 @@ function CreateSnippet() {
 
   console.log("isGistValid", isGistValid)
   return (
-    <Box>
+    <Box w="100%">
       <RadioGroup mb={6} onChange={setOption} value={option}>
         <Stack direction="row" spacing={5}>
           <Radio value="code">Code</Radio>

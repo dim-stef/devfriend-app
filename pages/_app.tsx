@@ -15,6 +15,9 @@ import {
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { extendTheme } from "@chakra-ui/react";
+import CreateSnippetButton from '../components/features';
+import HomeButton from '../components/features/HomeButton';
+
 const theme = extendTheme({
   useSystemColorMode: false,
   initialColorMode: "dark",
@@ -54,23 +57,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
       <DarkMode>
         <QueryClientProvider client={queryClient}>
-          <Flex w="100%" justifyContent="center" alignItems="center" h="60px" position="fixed" top="0"
-          bg="#1b1924">
-            <Flex w="800" maxW="800">
-              <IconButton
-                onClick={onStarClick}
-                icon={<StarIcon />}
-                colorScheme="teal"
-                aria-label="Home"
-                variant="transparent"
-              />
-                
+          <Flex justifyContent="center" alignItems="center">
+            <Flex w="1200px" maxW="1200" mt="10" justifyContent="center">
+              <Component {...pageProps} />
+              <Flex>
+                <HomeButton />
+                <CreateSnippetButton />
+              </Flex>
             </Flex>
           </Flex>
-
-          <Container w="800" maxW="1200" mt="63px">
-            <Component {...pageProps} />
-          </Container>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </DarkMode>
