@@ -14,9 +14,13 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
+import { Text } from "@chakra-ui/layout";
+import { Avatar } from "@chakra-ui/avatar";
+import { Box } from "@chakra-ui/layout";
 import { extendTheme } from "@chakra-ui/react";
-import CreateSnippetButton from '../components/features';
-import HomeButton from '../components/features/HomeButton';
+import CreateSnippetButton from "../components/features";
+import HomeButton from "../components/features/HomeButton";
+import LoginButton from "../components/features/LoginButton";
 
 const theme = extendTheme({
   useSystemColorMode: false,
@@ -49,8 +53,8 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  function onStarClick(){
-    router.push('/');
+  function onStarClick() {
+    router.push("/");
   }
 
   return (
@@ -58,11 +62,25 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DarkMode>
         <QueryClientProvider client={queryClient}>
           <Flex justifyContent="center" alignItems="center">
-            <Flex w="1200px" maxW="1200" mt="10" justifyContent="center">
-              <Component {...pageProps} />
-              <Flex>
-                <HomeButton />
-                <CreateSnippetButton />
+            <Flex
+              w="1200px"
+              maxW="1200"
+              mt="10"
+              flexFlow="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Flex w="1000px" flexFlow="column" justifyContent="center">
+                <Flex w="100%" justifyContent="center">
+                  <Component {...pageProps} />
+                  <Flex flexFlow="column">
+                    <LoginButton />
+                    <Flex>
+                      <HomeButton />
+                      <CreateSnippetButton />
+                    </Flex>
+                  </Flex>
+                </Flex>
               </Flex>
             </Flex>
           </Flex>

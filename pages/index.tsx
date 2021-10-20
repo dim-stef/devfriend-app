@@ -16,7 +16,7 @@ export default function Home() {
   const queryClient = useQueryClient();
 
   const snippets = useGetSnippets();
-  console.log(snippets)
+
   return (
     <div className="container">
       <Head>
@@ -26,7 +26,7 @@ export default function Home() {
       </Head>
       <Box w="100%" h="100%">
         <Flex flexFlow="row" justifyContent="center" className={styles.main}>
-          <Flex align="flex-end" flexFlow="column">
+          <Flex align="flex-end" flexFlow="column" w="100%">
             {snippets?.data?.map((snippet: SnippetNodeInterface)=>{
               return <Snippet key={snippet.node.id} snippet={snippet.node}/>
             })}
